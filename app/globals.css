@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+:root {
+  /* Your default theme */
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme='light'] {
+  --background: white;
+  --foreground: black;
+}
+
+[data-theme='warm'] {
+  --background: #FFF5E5;
+  --foreground: black;
+}
+
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
