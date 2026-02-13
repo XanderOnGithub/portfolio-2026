@@ -3,28 +3,39 @@
 @custom-variant light (&:where([data-theme=light], [data-theme=light] *));
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @custom-variant warm (&:where([data-theme=warm], [data-theme=warm] *));
-@custom-variant simple (&:where([simple-mode=true], [simple-mode=true] *));
+@custom-variant simple (&:where([plain-theme=true], [plain-theme=true] *));
 
 
 @theme {
   --color-background-light: #ffffff;
   --color-background-dark: #000000;
   --color-background-warm: #FFF5E5;
+
+  --color-text-light: #000000;
+  --color-text-dark: #ffffff;
+  --color-text-warm: #333333;
+
 }
 
 :root[data-theme="light"] {
   background-color: var(--color-background-light);
+  color: var(--color-text-light);
+
 }
 
 :root[data-theme="dark"] {
   background-color: var(--color-background-dark);
+  color: var(--color-text-dark);
+
 }
 
 :root[data-theme="warm"] {
   background-color: var(--color-background-warm);
+  color: var(--color-text-warm);
 }
 
 :root {
   transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 

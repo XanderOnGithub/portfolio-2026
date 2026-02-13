@@ -5,27 +5,27 @@ import { PlainThemeContext } from "../context";
 
 
 export function PlainThemeProvider({ children }: { children: ReactNode }) {
-  const [simpleMode, setSimpleMode] = useState(() => {
+  const [plainTheme, setPlainTheme] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("simpleMode") === "true";
+      return localStorage.getItem("plainTheme") === "true";
     }
     return false;
   });
 
   useEffect(() => {
-    localStorage.setItem("simpleMode", String(simpleMode));
+    localStorage.setItem("plainTheme", String(plainTheme));
     
-    if (simpleMode) {
-      document.documentElement.setAttribute("plain", "true");
+    if (plainTheme) {
+      document.documentElement.setAttribute("plain-theme", "true");
     } else {
-      document.documentElement.setAttribute("plain", "false"); 
+      document.documentElement.setAttribute("plain-theme", "false"); 
     }
-  }, [simpleMode]);
+  }, [plainTheme]);
 
-  const toggleSimpleMode = () => setSimpleMode((prev) => !prev);
+  const togglePlainTheme = () => setPlainTheme((prev) => !prev);
 
   return (
-    <PlainThemeContext.Provider value={{ simpleMode, setSimpleMode, toggleSimpleMode }}>
+    <PlainThemeContext.Provider value={{ plainTheme, setPlainTheme, togglePlainTheme }}>
       {children}
     </PlainThemeContext.Provider>
   );
