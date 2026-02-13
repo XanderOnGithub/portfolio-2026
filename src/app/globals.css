@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@custom-variant light (&:where([data-theme=light], [data-theme=light] *));
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@custom-variant warm (&:where([data-theme=warm], [data-theme=warm] *));
+@custom-variant simple (&:where([simple-mode=true], [simple-mode=true] *));
+
+
+@theme {
+  --color-background-light: #ffffff;
+  --color-background-dark: #000000;
+  --color-background-warm: #FFF5E5;
+}
+
+:root[data-theme="light"] {
+  background-color: var(--color-background-light);
+}
+
+:root[data-theme="dark"] {
+  background-color: var(--color-background-dark);
+}
+
+:root[data-theme="warm"] {
+  background-color: var(--color-background-warm);
+}
+
+:root {
+  transition: background-color 0.3s ease;
+}
+
